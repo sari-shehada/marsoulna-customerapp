@@ -1,5 +1,5 @@
 import 'package:marsouly/config/images/themed_image_keys.dart';
-part 'themed_image_mapper.dart';
+part 'themed_image_map.dart';
 
 class ImageHandler {
   static const String assetsPath = 'assets/';
