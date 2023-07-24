@@ -6,7 +6,7 @@ class ImageHandler {
   static const String assetsPath = 'assets/';
   static const String darkModePath = '${assetsPath}dark/';
   static const String lightModePath = '${assetsPath}light/';
-  static const String sharedImageFullPath = '${assetsPath}shared';
+  static const String sharedImageFullPath = '${assetsPath}shared/';
 
   static const String notFoundImage = '${sharedImageFullPath}notFound.png';
 
