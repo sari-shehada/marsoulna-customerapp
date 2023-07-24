@@ -1,7 +1,7 @@
-class SharedImageKey {
-  static String get appIcon => 'appIcon.png';
+enum SharedImageKey {
+  appIcon;
 }
 
-class ThemedImageKey {
-  static String get test => 'test.png';
+enum ThemedImageKey {
+  test;
 }
