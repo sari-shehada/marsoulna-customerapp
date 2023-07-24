@@ -37,3 +37,11 @@ dev_dependencies:
 flutter: 
   uses-material-design: true
 
+
+fonts:
+    - family: Marsoulna
+      fonts:
+        - asset: fonts/Marsoulna-Regular.ttf
+          weight: 500
+        - asset: fonts/Marsoulna-Bold.ttf
+          weight: 700
