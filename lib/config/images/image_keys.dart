@@ -1,3 +1,7 @@
-enum SharedImageKeys { appIcon }
+class SharedImageKey {
+  static String get appIcon => 'appIcon.png';
+}
 
-enum ThemedImageKeys { test }
+class ThemedImageKey {
+  static String get test => 'test.png';
+}
