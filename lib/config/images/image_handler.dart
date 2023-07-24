@@ -9,6 +9,7 @@ class ImageHandler {
 
   static const String sharedImageFullPath = '$assetsPath$sharedPath';
   static String get notFoundImage => '${sharedImageFullPath}notFound.png';
+
   String getThemedImagePath(ThemedImageKey key) {
     String? themedImageName = _themedImageToPath[key];
     if (themedImageName == null) {
