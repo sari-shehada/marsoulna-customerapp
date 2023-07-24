@@ -1,7 +1,7 @@
 enum SharedImageKey {
-  appIcon;
+  appIcon,
 }
 
 enum ThemedImageKey {
-  test;
+  test,
 }
