@@ -1,4 +1,4 @@
-part of 'shared_theme.dart';
+part of 'themes.dart';
 
 final ThemeData lightTheme =
     _sharedTheme.copyWith(colorScheme: lightColorScheme);

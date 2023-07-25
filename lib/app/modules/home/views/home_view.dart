@@ -13,10 +13,19 @@ class HomeView extends GetView<HomeController> {
         title: const Text('HomeView'),
         centerTitle: true,
       ),
-      body: const Center(
-        child: Text(
-          'HomeView is working',
-          style: TextStyle(fontSize: 20),
+      body: Center(
+        child: Column(
+          children: [
+            const Text(
+              'HomeView is working',
+              style: TextStyle(fontSize: 20),
+            ),
+            const SizedBox(height: 60),
+            ElevatedButton(
+              onPressed: () => controller.toggleTheme(),
+              child: const Text('Toggle Theme Mode'),
+            ),
+          ],
         ),
       ),
     );

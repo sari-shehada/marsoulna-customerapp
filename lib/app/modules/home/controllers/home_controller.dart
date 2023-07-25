@@ -1,9 +1,12 @@
 import 'package:get/get.dart';
+import 'package:marsouly/services/theming_service/theming_service.dart';
 
 class HomeController extends GetxController {
   //TODO: Implement HomeController
 
   final count = 0.obs;
+
+  void toggleTheme() => ThemingService.instance.toggleLightAndDarkTheme();
   @override
   void onInit() {
     super.onInit();
