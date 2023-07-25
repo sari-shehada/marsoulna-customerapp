@@ -1,0 +1,37 @@
+part of 'shared_theme.dart';
+
+final ThemeData darkTheme = _sharedTheme.copyWith(colorScheme: darkColorScheme);
+
+const darkColorScheme = ColorScheme(
+  brightness: Brightness.dark,
+  primary: Color(0xFFFFB3AE),
+  onPrimary: Color(0xFF68000B),
+  primaryContainer: Color(0xFF900D17),
+  onPrimaryContainer: Color(0xFFFFDAD7),
+  secondary: Color(0xFF4CDADE),
+  onSecondary: Color(0xFF003738),
+  secondaryContainer: Color(0xFF004F51),
+  onSecondaryContainer: Color(0xFF6FF6FA),
+  tertiary: Color(0xFFE1C28C),
+  onTertiary: Color(0xFF402D04),
+  tertiaryContainer: Color(0xFF594319),
+  onTertiaryContainer: Color(0xFFFFDEA6),
+  error: Color(0xFFFFB4AB),
+  errorContainer: Color(0xFF93000A),
+  onError: Color(0xFF690005),
+  onErrorContainer: Color(0xFFFFDAD6),
+  background: Color(0xFF191C1D),
+  onBackground: Color(0xFFE1E3E3),
+  outline: Color(0xFFA08C8B),
+  onInverseSurface: Color(0xFF191C1D),
+  inverseSurface: Color(0xFFE1E3E3),
+  inversePrimary: Color(0xFFB22A2C),
+  shadow: Color(0xFF000000),
+  surfaceTint: Color(0xFFFFB3AE),
+  outlineVariant: Color(0xFF534342),
+  scrim: Color(0xFF000000),
+  surface: Color(0xFF101415),
+  onSurface: Color(0xFFC4C7C7),
+  surfaceVariant: Color(0xFF534342),
+  onSurfaceVariant: Color(0xFFD8C2C0),
+);
