@@ -7,7 +7,7 @@ import 'package:marsouly/services/theming_service/theming_service.dart';
 
 import 'app/routes/app_pages.dart';
 
-void main() async {
+Future<void> main() async {
   await GlobalConfig.performInitialConfiguration();
   runApp(
     GetMaterialApp(
