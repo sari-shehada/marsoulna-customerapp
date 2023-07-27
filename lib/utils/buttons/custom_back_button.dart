@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:marsouly/extensions/responsiveness_extensions.dart';
+
+import '../../extensions/responsiveness_extensions.dart';
 
 class CustomBackButton extends StatelessWidget {
   final VoidCallback? onTap;

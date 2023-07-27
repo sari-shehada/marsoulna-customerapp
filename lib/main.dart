@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:get/get.dart';
-import 'package:marsouly/config/global/global_config.dart';
-import 'package:marsouly/config/themes/themes.dart';
-import 'package:marsouly/services/theming_service/theming_service.dart';
 
 import 'app/routes/app_pages.dart';
+import 'config/design/design_config.dart';
+import 'config/global/global_config.dart';
+import 'config/themes/themes.dart';
+import 'services/theming_service/theming_service.dart';
 
 Future<void> main() async {
   await GlobalConfig.performInitialConfiguration();
@@ -19,7 +19,7 @@ class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(390, 844), //TODO: Move Sizes to DesignConfig
+      designSize: DesignConfig.designSize,
       splitScreenMode: false,
       useInheritedMediaQuery: true,
       builder: (context, child) {

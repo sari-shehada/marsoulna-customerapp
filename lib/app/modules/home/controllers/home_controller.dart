@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:marsouly/services/theming_service/theming_service.dart';
+import '../../../../services/theming_service/theming_service.dart';
 
 class HomeController extends GetxController {
   //TODO: Implement HomeController

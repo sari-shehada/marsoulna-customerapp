@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:marsouly/extensions/responsiveness_extensions.dart';
+import '../../extensions/responsiveness_extensions.dart';
 import '../buttons/custom_back_button.dart';
 import '../spacing_utils/spacing_utils.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:marsouly/config/design/design_config.dart';
+import '../../../../config/design/design_config.dart';
 
 import '../../../../utils/appbars/custom_appbar.dart';
 import '../controllers/home_controller.dart';

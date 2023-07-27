@@ -1,4 +1,5 @@
-import 'package:marsouly/config/images/themed_image_keys.dart';
+import 'themed_image_keys.dart';
+
 part 'themed_image_map.dart';
 
 class ImageHandler {

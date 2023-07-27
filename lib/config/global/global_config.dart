@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:marsouly/config/global/network_service_config.dart';
+import 'network_service_config.dart';
 
 import '../../services/shared_prefs_service/shared_preferences_service.dart';
 import '../../services/theming_service/theming_service.dart';
@@ -16,7 +16,7 @@ class GlobalConfig {
     await SharedPreferencesService.init();
     ThemingService.init();
     NetworkServiceConfig.init(NetworkServiceBaseURLEnvironment.local);
-    //TODO: Comment HTTP Overrides if not needed
+    //FIXME: Comment HTTP Overrides if not needed
     HttpOverrides.global = HttpCertificateOverrides();
     _alreadyInitialized = true;
   }
