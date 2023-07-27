@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -42,11 +43,11 @@ class NetworkService {
           data: bodyParameters,
         );
         Map<String, dynamic> parsedResponse = (response.data);
-        if (parsedResponse["succeeded"]) {
+        if (parsedResponse['succeeded']) {
           return right(SuccessResult(
             data:
-                (parsedResponse["data"] as List).map((e) => mapper(e)).toList(),
-            reason: parsedResponse["reason"],
+                (parsedResponse['data'] as List).map((e) => mapper(e)).toList(),
+            reason: parsedResponse['reason'],
           ));
         }
         return left(ErrorResult(
@@ -69,10 +70,10 @@ class NetworkService {
           data: bodyParameters,
         );
         Map<String, dynamic> parsedResponse = (response.data);
-        if (parsedResponse["succeeded"]) {
+        if (parsedResponse['succeeded']) {
           return right(SuccessResult(
-            data: mapper(parsedResponse["data"]),
-            reason: parsedResponse["reason"],
+            data: mapper(parsedResponse['data']),
+            reason: parsedResponse['reason'],
           ));
         }
         return left(ErrorResult(
@@ -92,11 +93,11 @@ class NetworkService {
         Response response =
             await _dio.get(url, queryParameters: queryParameters);
         Map<String, dynamic> parsedResponse = (response.data);
-        if (parsedResponse["succeeded"]) {
+        if (parsedResponse['succeeded']) {
           return right(
             SuccessResult(
-              data: mapper(parsedResponse["data"]),
-              reason: parsedResponse["reason"],
+              data: mapper(parsedResponse['data']),
+              reason: parsedResponse['reason'],
             ),
           );
         }
@@ -115,11 +116,11 @@ class NetworkService {
         Response response =
             await _dio.get(url, queryParameters: queryParameters);
         Map<String, dynamic> parsedResponse = (response.data);
-        if (parsedResponse["succeeded"]) {
+        if (parsedResponse['succeeded']) {
           return right(SuccessResult(
             data:
-                (parsedResponse["data"] as List).map((e) => mapper(e)).toList(),
-            reason: parsedResponse["reason"],
+                (parsedResponse['data'] as List).map((e) => mapper(e)).toList(),
+            reason: parsedResponse['reason'],
           ));
         }
         return left(ErrorResult(
@@ -143,7 +144,7 @@ class NetworkService {
       }
       return left(ErrorResult(reason: _handleDioErrors(error)));
     } catch (e) {
-      return left(ErrorResult(reason: "Logic Exception: $e"));
+      return left(ErrorResult(reason: 'Logic Exception: $e'));
     }
   }
   //#endregion
@@ -152,43 +153,43 @@ class NetworkService {
   String _handleResponseCodeErrors(int statusCode) {
     switch (statusCode) {
       case 400:
-        return "400";
+        return '400';
       case 401:
-        return "401";
+        return '401';
       case 403:
-        return "403";
+        return '403';
       case 404:
-        return "404";
+        return '404';
       case 409:
-        return "409";
+        return '409';
       default:
-        return "Unknown Error $statusCode";
+        return 'Unknown Error $statusCode';
     }
   }
 
   static String _handleDioErrors(DioException error) {
     switch (error.type) {
       case DioExceptionType.connectionTimeout:
-        return "Connection Time Out";
+        return 'Connection Time Out';
       case DioExceptionType.sendTimeout:
-        return "Send Time Out";
+        return 'Send Time Out';
       case DioExceptionType.receiveTimeout:
-        return "Receive Timed Out";
+        return 'Receive Timed Out';
       case DioExceptionType.badCertificate:
-        return "Bad Certificate";
+        return 'Bad Certificate';
       case DioExceptionType.badResponse:
-        return "Bad Response";
+        return 'Bad Response';
       case DioExceptionType.cancel:
-        return "Cancel";
+        return 'Cancel';
       case DioExceptionType.connectionError:
-        return "Connection Error";
+        return 'Connection Error';
       case DioExceptionType.unknown:
         {
           if (error.error is HandshakeException) {
             //FIXME: Will never be handled if HTTP Overrides are added
-            return "Handshake Exception";
+            return 'Handshake Exception';
           }
-          return "Unknown ${error.error}";
+          return 'Unknown ${error.error}';
         }
     }
   }
