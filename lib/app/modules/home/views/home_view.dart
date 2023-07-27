@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:marsouly/config/design/design_config.dart';
 
+import '../../../../utils/appbars/custom_appbar.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -9,12 +11,15 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('HomeView'),
+      extendBodyBehindAppBar: true,
+      appBar: const CustomAppBar(
+        child: 'Test',
+        backButtonEnabled: false,
         centerTitle: true,
       ),
-      body: Center(
-        child: Column(
+      body: SizedBox.expand(
+        child: ListView(
+          padding: EdgeInsets.only(top: DesignConfig.topPaddingWithAppBar),
           children: [
             const Text(
               'HomeView is working',
@@ -25,6 +30,15 @@ class HomeView extends GetView<HomeController> {
               onPressed: () => controller.toggleTheme(),
               child: const Text('Toggle Theme Mode'),
             ),
+            ...List.generate(
+              100,
+              (index) => Container(
+                margin: EdgeInsets.all(40),
+                height: 50,
+                width: double.infinity,
+                color: Colors.red,
+              ),
+            )
           ],
         ),
       ),

@@ -4,7 +4,7 @@ import '../../services/network_service/network_service.dart';
 
 class NetworkServiceConfig {
   static const Map<NetworkServiceBaseURLEnvironment, String> _apiUrls = {
-    NetworkServiceBaseURLEnvironment.local: 'Test',
+    NetworkServiceBaseURLEnvironment.local: 'https://localhost:5000/test',
     NetworkServiceBaseURLEnvironment.staging: 'Test',
     NetworkServiceBaseURLEnvironment.production: 'Test',
   };

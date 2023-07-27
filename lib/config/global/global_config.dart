@@ -15,7 +15,7 @@ class GlobalConfig {
     WidgetsFlutterBinding.ensureInitialized();
     await SharedPreferencesService.init();
     ThemingService.init();
-    NetworkServiceConfig.init(NetworkServiceBaseURLEnvironment.production);
+    NetworkServiceConfig.init(NetworkServiceBaseURLEnvironment.local);
     //TODO: Comment HTTP Overrides if not needed
     HttpOverrides.global = HttpCertificateOverrides();
     _alreadyInitialized = true;
