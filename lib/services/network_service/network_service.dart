@@ -7,6 +7,7 @@ part 'helper_models/error_result.dart';
 part 'helper_models/success_result.dart';
 part 'network_service_typedefs.dart';
 
+//TODO: Make Calls from the isolates service
 class NetworkService {
   //#region Singleton
   static final NetworkService _singleton = NetworkService._internal();
@@ -17,18 +18,15 @@ class NetworkService {
   NetworkService._internal();
   //#endregion
 
-  static Dio _dio = Dio()
-    ..options.baseUrl = "https://localhost:7030/"
-    ..options.connectTimeout = const Duration(milliseconds: 5000)
-    ..options.receiveTimeout = const Duration(milliseconds: 3000);
+  Dio _dio = Dio();
 
   ///This Method Should Be Invoked In The Configuration Service To Ensure Calling
-  static void setHeaders({required Map<String, String>? headers}) {
+  void init({required BaseOptions options}) {
     _dio = Dio();
-    _dio.options.headers = headers ??
-        {
-          'content-type': 'application/json; charset=utf-8',
-        };
+    _dio.options = options;
+    // {
+    //   'content-type': 'application/json; charset=utf-8',
+    // };
   }
 
   //#region HTTP Verb: POST
