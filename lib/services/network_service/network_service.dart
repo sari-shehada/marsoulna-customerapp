@@ -19,14 +19,12 @@ class NetworkService {
   //#endregion
 
   Dio _dio = Dio();
-
-  ///This Method Should Be Invoked In The Configuration Service To Ensure Calling
+  bool _isInitialized = false;
   void init({required BaseOptions options}) {
+    if (_isInitialized) return;
     _dio = Dio();
     _dio.options = options;
-    // {
-    //   'content-type': 'application/json; charset=utf-8',
-    // };
+    _isInitialized = true;
   }
 
   //#region HTTP Verb: POST
