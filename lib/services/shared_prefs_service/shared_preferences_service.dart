@@ -47,6 +47,32 @@ class SharedPreferencesService {
       return false;
     }
   }
+
+  dynamic readItem<T>({required Enum key}) {
+    try {
+      if (T == bool) {
+        return prefs.getBool(key.toString());
+      }
+      if (T == String) {
+        return prefs.getString(key.toString());
+      }
+      if (T == int) {
+        return prefs.getInt(key.toString());
+      }
+      if (T == double) {
+        return prefs.getDouble(key.toString());
+      }
+      if (T == List<String>) {
+        return prefs.getStringList(key.toString());
+      }
+      throw Exception(
+          'Exception Occurred When Calling SharedPreferencesService -> readItem() -> Data Type Not Supported');
+    } catch (e) {
+      //TODO: Review This Type Of Exceptions and Reread about flutter Exceptions
+      log(e.toString());
+      return false;
+    }
+  }
 }
 
 enum SharedPrefsKey {
