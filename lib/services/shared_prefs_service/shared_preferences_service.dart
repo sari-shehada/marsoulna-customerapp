@@ -15,15 +15,7 @@ class SharedPreferencesService {
     return instance;
   }
 
-  int? getInt(SharedPrefsKey key) {
-    return prefs.getInt(key.toString());
-  }
-
-  Future<void> setInt(SharedPrefsKey key, int value) async {
-    await prefs.setInt(key.toString(), value);
-  }
-
-  Future<bool> writeItem<T>({required Enum key, required T value}) async {
+  Future<bool> setValue<T>({required Enum key, required T value}) async {
     try {
       if (value is bool) {
         return await prefs.setBool(key.toString(), value);
@@ -48,33 +40,29 @@ class SharedPreferencesService {
     }
   }
 
-  T readItem<T>({required Enum key}) {
+  T? getValue<T>({required Enum key}) {
     try {
       if (T == bool) {
-        return prefs.getBool(key.toString()) as T;
+        return prefs.getBool(key.toString()) as T?;
       }
       if (T == String) {
-        return prefs.getString(key.toString()) as T;
+        return prefs.getString(key.toString()) as T?;
       }
       if (T == int) {
-        return prefs.getInt(key.toString()) as T;
+        return prefs.getInt(key.toString()) as T?;
       }
       if (T == double) {
-        return prefs.getDouble(key.toString()) as T;
+        return prefs.getDouble(key.toString()) as T?;
       }
       if (T == List<String>) {
-        return prefs.getStringList(key.toString()) as T;
+        return prefs.getStringList(key.toString()) as T?;
       }
       throw Exception(
           'Exception Occurred When Calling SharedPreferencesService -> readItem() -> Data Type Not Supported');
     } catch (e) {
       //TODO: Review This Type Of Exceptions and Reread about flutter Exceptions
       log(e.toString());
-      return false as T;
+      rethrow;
     }
   }
-}
-
-enum SharedPrefsKey {
-  currentThemeMode,
 }

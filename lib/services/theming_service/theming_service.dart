@@ -36,7 +36,7 @@ class ThemingService {
     return ThemingServiceSharedPrefsHandler.getCurrentThemeMode();
   }
 
-  void _updateThemeMode({ThemeMode? themeMode}) async {
+  Future<void> _updateThemeMode({ThemeMode? themeMode}) async {
     if (themeMode == null) {
       currentThemeMode = isDarkMode ? ThemeMode.dark : ThemeMode.light;
     } else {
