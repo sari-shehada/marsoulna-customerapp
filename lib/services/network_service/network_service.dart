@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:fpdart/fpdart.dart';
 
-import 'helper_models/error_result.dart';
-import 'helper_models/success_result.dart';
-import 'network_service_typedefs.dart';
+part 'helper_models/error_result.dart';
+part 'helper_models/success_result.dart';
+part 'network_service_typedefs.dart';
 
 class NetworkService {
   //#region Singleton

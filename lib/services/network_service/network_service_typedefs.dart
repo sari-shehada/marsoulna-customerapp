@@ -1,7 +1,4 @@
-import 'package:fpdart/fpdart.dart';
-
-import 'helper_models/error_result.dart';
-import 'helper_models/success_result.dart';
+part of 'network_service.dart';
 
 typedef FutureEither<T> = Future<Either<ErrorResult, SuccessResult<T>>>;
 typedef EitherResult<T> = Either<ErrorResult, SuccessResult<T>>;
