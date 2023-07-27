@@ -8,10 +8,13 @@ class SharedPreferencesService {
   });
 
   static late SharedPreferencesService instance;
+  static bool _isInitialized = false;
   SharedPreferences prefs;
   static Future<SharedPreferencesService> init() async {
+    if (_isInitialized) return instance;
     SharedPreferences prefs = await SharedPreferences.getInstance();
     instance = SharedPreferencesService(prefs: prefs);
+    _isInitialized = true;
     return instance;
   }
 
@@ -60,9 +63,53 @@ class SharedPreferencesService {
       throw Exception(
           'Exception Occurred When Calling SharedPreferencesService -> readItem() -> Data Type Not Supported');
     } catch (e) {
-      //TODO: Review This Type Of Exceptions and Reread about flutter Exceptions
-      log(e.toString());
       rethrow;
+    }
+  }
+
+  Future<bool> clearAll() async {
+    try {
+      bool clearingRes = await prefs.clear();
+      if (clearingRes) {
+        log('SharedPreferencesService -> clearAll() -> Clear Shared Preferences Succeeded');
+      } else {
+        log('SharedPreferencesService -> clearAll() -> Clear Shared Preferences Failed With An Exception');
+      }
+      return clearingRes;
+    } catch (e) {
+      log('SharedPreferencesService -> clearAll() -> Clear Shared Preferences Failed With An Exception');
+      return false;
+    }
+  }
+
+  Future<bool> clearValue({required Enum key}) async {
+    try {
+      if (!keyExists(key: key)) {
+        throw Exception('Cannot Clear A Non Existing Key: "${key.toString()}"');
+      }
+      bool clearingRes = await prefs.remove(key.toString());
+      if (clearingRes) {
+        log('SharedPreferencesService -> clearValue() -> Clear Shared Preferences Succeeded');
+      } else {
+        log('SharedPreferencesService -> clearValue() -> Clear Shared Preferences Failed With An Exception');
+      }
+      return clearingRes;
+    } catch (e) {
+      log('SharedPreferencesService -> clearValue() -> Clear Shared Preferences Failed With An Exception');
+      return false;
+    }
+  }
+
+  bool keyExists({required Enum key}) {
+    try {
+      bool keyFound = prefs.containsKey(key.toString());
+      if (!keyFound) {
+        log('SharedPreferencesService -> keyExists() -> No Existing Item With Key: $key');
+      }
+      return keyFound;
+    } catch (e) {
+      log('SharedPreferencesService -> keyExists() -> Failed With An Exception');
+      return false;
     }
   }
 }
