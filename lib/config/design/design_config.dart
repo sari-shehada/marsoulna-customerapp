@@ -4,7 +4,6 @@ import '../../extensions/responsiveness_extensions.dart';
 
 class DesignConfig {
   static const Size designSize = Size(390, 844);
-  static final topPaddingWithAppBar = Get.mediaQuery.padding.top +
-      kToolbarHeight.responsiveFromHeight +
-      10.responsiveFromHeight;
+  static final double topPaddingWithAppBar =
+      Get.mediaQuery.padding.top + (kToolbarHeight + 10).responsiveFromHeight;
 }

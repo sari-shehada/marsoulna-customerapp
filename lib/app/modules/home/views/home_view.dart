@@ -30,6 +30,10 @@ class HomeView extends GetView<HomeController> {
               onPressed: () => controller.toggleTheme(),
               child: const Text('Toggle Theme Mode'),
             ),
+            ElevatedButton(
+              onPressed: () => controller.showDialog(),
+              child: const Text('Dialog Test'),
+            ),
             ...List.generate(
               100,
               (index) => Container(
