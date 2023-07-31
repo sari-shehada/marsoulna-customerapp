@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:marsouly/extensions/responsiveness_extensions.dart';
 import '../../../../config/design/design_config.dart';
 
 import '../../../../utils/appbars/custom_appbar.dart';
@@ -10,6 +11,9 @@ class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    ThemeData themeData = Theme.of(context);
+    ColorScheme colorScheme = themeData.colorScheme;
+    TextTheme textTheme = themeData.textTheme;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: const CustomAppBar(
@@ -34,15 +38,44 @@ class HomeView extends GetView<HomeController> {
               onPressed: () => controller.showDialog(),
               child: const Text('Dialog Test'),
             ),
-            ...List.generate(
-              100,
-              (index) => Container(
-                margin: EdgeInsets.all(40),
-                height: 50,
-                width: double.infinity,
-                color: Colors.red,
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 10.responsiveFromHeight),
+              height: 100.responsiveFromHeight,
+              decoration: BoxDecoration(
+                color: colorScheme.secondaryContainer,
               ),
-            )
+              alignment: Alignment.center,
+              child: Text(
+                'مرحبا - Hello',
+                style: textTheme.titleLarge?.copyWith(
+                  color: colorScheme.onSecondaryContainer,
+                ),
+              ),
+            ),
+            Text(
+              'On Surface',
+              style: textTheme.displayMedium?.copyWith(
+                color: colorScheme.onSurface,
+              ),
+            ),
+            Text(
+              'On Surface Variant',
+              style: textTheme.displayMedium?.copyWith(
+                color: colorScheme.onSurfaceVariant,
+              ),
+            ),
+            Text(
+              'Outline',
+              style: textTheme.displayMedium?.copyWith(
+                color: colorScheme.outline,
+              ),
+            ),
+            Text(
+              'Outline Variant',
+              style: textTheme.displayMedium?.copyWith(
+                color: colorScheme.outlineVariant,
+              ),
+            ),
           ],
         ),
       ),
