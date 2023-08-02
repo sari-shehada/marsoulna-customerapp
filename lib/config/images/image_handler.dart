@@ -1,3 +1,5 @@
+import 'package:marsouly/services/theming_service/theming_service.dart';
+
 import 'themed_image_keys.dart';
 
 part 'themed_image_map.dart';
@@ -10,12 +12,12 @@ class ImageHandler {
 
   static const String notFoundImage = '${sharedImageFullPath}notFound.png';
 
-  String getThemedImagePath(ThemedImageKey key, bool isDarkMode) {
+  static String getThemedImagePath(ThemedImageKey key) {
     String? themedImageName = _themedImageToPath[key];
     if (themedImageName == null) {
       return notFoundImage;
     }
-    return (isDarkMode ? darkModePath : lightModePath) +
+    return (ThemingService.instance.isDarkMode ? darkModePath : lightModePath) +
         (_themedImageToPath[key]!);
   }
 }
