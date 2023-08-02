@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 extension StringExtensions on String {
   bool get isOnlyDigits => RegExp(r'^\d+$').hasMatch(this);
@@ -54,5 +55,9 @@ extension StringExtensions on String {
       wordsToReturn.add(words[i]);
     }
     return wordsToReturn.map((e) => e).join(' ');
+  }
+
+  String capitalizeFirstLetterOfEachWord() {
+    return split(' ').map((word) => word.capitalizeFirst).join(' ');
   }
 }
