@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:marsouly/services/locale_service/locales_service.dart';
-import 'package:uni_links/uni_links.dart';
 
 import 'app/routes/app_pages.dart';
 import 'config/design/design_config.dart';
 import 'config/global/global_config.dart';
+import 'config/global/uni_link_deep_linking_service.dart';
 import 'config/themes/themes.dart';
 import 'generated/locales.g.dart';
 import 'services/theming_service/theming_service.dart';
 
 Future<void> main() async {
   await GlobalConfig.performInitialConfiguration();
-  await Routing.initUniLinks();
+  await UniLinkDeepLinkingService.initUniLinks();
   runApp(const Wrapper());
 }
 
@@ -57,30 +57,5 @@ class Wrapper extends StatelessWidget {
         );
       },
     );
-  }
-}
-
-class Routing {
-  static Future<void> initUniLinks() async {
-    try {
-      final initialLink = await getInitialUri();
-      _handleLink(initialLink);
-    } on Exception catch (e) {
-      print('Error initializing uni_links: $e');
-    }
-
-    uriLinkStream.listen((Uri? link) {
-      print('Path Was:${link?.path}');
-      _handleLink(link);
-    });
-  }
-
-  static void _handleLink(Uri? link) {
-    if (link != null) {
-      final path = link.path;
-      if (path == Routes.LOADER) {
-        Get.toNamed(Routes.LOADER);
-      }
-    }
   }
 }
