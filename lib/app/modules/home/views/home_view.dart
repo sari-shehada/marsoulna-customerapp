@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:marsouly/extensions/responsiveness_extensions.dart';
+import '../../../../extensions/responsiveness_extensions.dart';
 import '../../../../config/design/design_config.dart';
 
 import '../../../../utils/appbars/custom_appbar.dart';

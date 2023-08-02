@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:marsouly/services/shared_prefs_service/shared_preferences_service.dart';
+import '../shared_prefs_service/shared_preferences_service.dart';
 
 class LocalesServiceSharedPrefs {
   static Future<void> setLocale(String languageCode) async {

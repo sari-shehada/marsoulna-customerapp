@@ -1,12 +1,12 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:marsouly/services/locale_service/locales_service.dart';
-import 'network_service_config.dart';
 
+import '../../services/locale_service/locales_service.dart';
 import '../../services/shared_prefs_service/shared_preferences_service.dart';
 import '../../services/theming_service/theming_service.dart';
 import '../dev_env/http_certificates_overrides.dart';
+import 'network_service_config.dart';
 
 class GlobalConfig {
   static bool _alreadyInitialized = false;

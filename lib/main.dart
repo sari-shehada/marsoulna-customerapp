@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:marsouly/services/locale_service/locales_service.dart';
+import 'services/locale_service/locales_service.dart';
 
 import 'app/routes/app_pages.dart';
 import 'config/design/design_config.dart';

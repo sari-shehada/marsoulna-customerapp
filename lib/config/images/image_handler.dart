@@ -1,4 +1,4 @@
-import 'package:marsouly/services/theming_service/theming_service.dart';
+import '../../services/theming_service/theming_service.dart';
 
 import 'themed_image_keys.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:marsouly/utils/dialog_utils/dialog_utils.dart';
+import '../../../../utils/dialog_utils/dialog_utils.dart';
 import '../../../../services/theming_service/theming_service.dart';
 
 class HomeController extends GetxController {

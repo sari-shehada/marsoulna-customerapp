@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import 'theming_service_shared_prefs_handler.dart';
 
 class ThemingService {
