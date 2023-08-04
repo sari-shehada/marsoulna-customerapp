@@ -6,4 +6,6 @@ class DesignConfig {
   static const Size designSize = Size(390, 844);
   static final double topPaddingWithAppBar =
       Get.mediaQuery.padding.top + (kToolbarHeight + 10).responsiveFromHeight;
+  static final double deviceTopPadding = Get.mediaQuery.padding.top;
+  static final double deviceBottomPadding = Get.mediaQuery.padding.bottom;
 }

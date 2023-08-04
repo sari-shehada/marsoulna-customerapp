@@ -5,9 +5,11 @@ import 'package:get/get.dart';
 import 'package:marsoulna/app/modules/landing/controllers/landing_animation_controller_controller.dart';
 import 'package:marsoulna/app/modules/landing/views/widgets/landing_view_animated_builder.dart';
 import 'package:marsoulna/app/modules/loader/views/loader_view_shared_design_constants.dart';
+import 'package:marsoulna/config/design/design_config.dart';
 import 'package:marsoulna/extensions/responsiveness_extensions.dart';
 
 import '../../../../config/images/shared_image_keys.dart';
+import '../../../../utils/buttons/custom_icon_button.dart';
 import '../controllers/landing_controller.dart';
 
 class LandingView extends GetView<LandingController> {
@@ -130,6 +132,16 @@ class LandingView extends GetView<LandingController> {
                 ),
               );
             },
+          ),
+          //KEY: Language Change Button
+          Positioned.directional(
+            top: (DesignConfig.deviceTopPadding + 10).responsiveFromHeight,
+            start: 30.responsiveFromWidth,
+            textDirection: Directionality.of(context),
+            child: CustomIconButton(
+              icon: Icons.language,
+              onTap: () => controller.changeLanguage(context),
+            ),
           ),
         ],
       ),

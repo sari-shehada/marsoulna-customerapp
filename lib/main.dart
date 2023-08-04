@@ -34,6 +34,8 @@ class Wrapper extends StatelessWidget {
           fallbackLocale: LocalesService.instance.fallbackLocale,
           getPages: AppPages.routes,
           themeMode: ThemingService.instance.currentThemeMode,
+          // themeMode: ThemeMode.light,
+          // themeMode: ThemeMode.dark,
           theme: lightTheme,
           darkTheme: darkTheme,
           translationsKeys: AppTranslation.translations,

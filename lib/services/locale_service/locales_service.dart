@@ -23,6 +23,9 @@ class LocalesService {
   }
 
   Future<Locale> setLocale({required Locale locale}) async {
+    if (currentLocale == locale) {
+      return currentLocale;
+    }
     await LocalesServiceSharedPrefs.setLocale(locale.languageCode);
     await Get.updateLocale(locale);
     currentLocale = locale;

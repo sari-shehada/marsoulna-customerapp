@@ -1,10 +1,15 @@
 part of 'themes.dart';
 
-final ThemeData darkTheme = _sharedTheme.copyWith(colorScheme: darkColorScheme);
+final ThemeData darkTheme = _sharedTheme.copyWith(
+  colorScheme: darkColorScheme,
+  scaffoldBackgroundColor: const Color(0xFF0D0D0D),
+  // scaffoldBackgroundColor: const Color(0xFF1A1A1A),
+);
 
 const darkColorScheme = ColorScheme(
   brightness: Brightness.dark,
-  primary: Color(0xFFFFB3AE),
+  // primary: Color(0xFFFFB3AE),
+  primary: Color(0xFFf45b56),
   onPrimary: Color(0xFF68000B),
   primaryContainer: Color(0xFF900D17),
   onPrimaryContainer: Color(0xFFFFDAD7),

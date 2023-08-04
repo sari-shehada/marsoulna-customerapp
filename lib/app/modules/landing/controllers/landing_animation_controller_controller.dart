@@ -169,7 +169,8 @@ class _LandingAnimationControllerConstants {
   static Cubic get forwardAnimationCurve => Curves.linearToEaseOut;
 
   //App Icon
-  static double get appIconTopPosition => 130.responsiveFromHeight;
+  static double get appIconTopPosition =>
+      150.responsiveFromHeight; //Was 130 in Figma
   static double get appIconDimension => 180.responsiveFromHeight;
 
   //App Title

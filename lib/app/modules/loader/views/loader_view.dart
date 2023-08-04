@@ -31,7 +31,7 @@ class LoaderView extends GetView<LoaderController> {
           Positioned(
             top: LoaderViewSharedDesignConstants.appTitleTopPosition,
             child: Text(
-              'Marsoulna'.tr,
+              'marsoulna'.tr,
               style: LoaderViewSharedDesignConstants.appTitleTextStyle,
             ),
           ),
