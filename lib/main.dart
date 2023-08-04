@@ -43,7 +43,7 @@ class Wrapper extends StatelessWidget {
             if (routing == null) {
               return;
             }
-            print(routing.current);
+            print('Current Route:${routing.current}');
             // if (routing.route!.isFirst) {
             //   // The app was launched from a deep link
             //   final uri = routing.route.settings;

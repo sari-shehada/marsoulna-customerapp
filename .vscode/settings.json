@@ -9,6 +9,38 @@
         "marsouly",
         "prefs",
         "screenutil",
-        "typedefs"
-    ]
+        "Tweens",
+        "typedefs",
+        "vsync"
+    ],
+    "todohighlight.isEnable": true,
+    "todohighlight.isCaseSensitive": true,
+    "todohighlight.keywords": [
+        "NOTE",
+        "TASK",
+        "REFACTOR",
+        {
+            "text": "ISMAIL",
+            "color": "white",
+            "backgroundColor": "chocolate",
+        },
+        {
+            "text": "SARI",
+            "color": "white",
+            "backgroundColor": "crimson",
+        },
+        {
+            "text": "KEY",
+            "color": "Yellow",
+            "backgroundColor": "rgba(0,0,0,0)",
+        },
+    ],
+    "todohighlight.defaultStyle": {
+        "color": "black",
+        "backgroundColor": "#FFF",
+        "cursor": "pointer",
+        "borderRadius": "2px",
+    },
+    "todohighlight.maxFilesForSearch": 5120,
+    "todohighlight.toggleURI": false
 }

@@ -11,6 +11,8 @@ class AppTranslation {
 
 class LocaleKeys {
   LocaleKeys._();
+  static const marsoulna = 'marsoulna';
+  static const landingViewFullyRemastered = 'landingViewFullyRemastered';
   static const commonLocaleTestLocale = 'commonLocaleTestLocale';
   static const commonLocaleSettings = 'commonLocaleSettings';
   static const commonLocaleChangeLanguage = 'commonLocaleChangeLanguage';
@@ -49,6 +51,8 @@ class LocaleKeys {
 
 class Locales {
   static const en = {
+    'marsoulna': 'Marsoulna',
+    'landingViewFullyRemastered': 'Fully Remastered',
     'commonLocaleTestLocale': 'Test Locale',
     'commonLocaleSettings': 'Settings',
     'commonLocaleChangeLanguage': 'Change Language',
@@ -80,6 +84,8 @@ class Locales {
     'commonLocaleChange': 'Change',
   };
   static const ar = {
+    'marsoulna': 'مرسول',
+    'landingViewFullyRemastered': 'بحللته الجديدة',
     'commonLocaleTestLocale': 'تجربة',
     'commonLocaleSettings': 'الإعدادات',
     'commonLocaleChangeLanguage': 'تغيير اللغة',

@@ -1,9 +1,7 @@
 import 'package:get/get.dart';
+import 'package:marsoulna/app/controllers/navigation_controller.dart';
 
 class LoaderController extends GetxController {
-  //TODO: Implement LoaderController
-
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -11,6 +9,7 @@ class LoaderController extends GetxController {
 
   @override
   void onReady() {
+    _performInitialLoading();
     super.onReady();
   }
 
@@ -19,5 +18,10 @@ class LoaderController extends GetxController {
     super.onClose();
   }
 
-  void increment() => count.value++;
+  void _performInitialLoading() async {
+    await Future.delayed(500.milliseconds);
+    NavigationController.navigateFromLoader(
+      destination: LoaderNavigationDestinations.landing,
+    );
+  }
 }
