@@ -1,4 +1,5 @@
 enum ThemedImageKey {
-  test,
-  test1,
+  onboardingLookForRestaurants,
+  onboardingChatWithTheDriver,
+  onboardingOnOurWay,
 }

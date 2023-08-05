@@ -12,7 +12,7 @@ class LandingController extends GetxController {
   Future<void> toOnBoarding() async {
     await Get.find<LandingAnimationController>().reverseAnimation();
     //TODO: Consider moving to navigation controller
-    Get.offAllNamed(Routes.ONBOARDING);
+    Get.toNamed(Routes.ONBOARDING);
   }
 
   Future<void> changeLanguage(BuildContext context) async {

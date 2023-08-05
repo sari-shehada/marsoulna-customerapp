@@ -29,5 +29,11 @@
   "commonLocaleOptional": "Optional",
   "commonLocaleChooseDate": "Choose Date",
   "commonLocaleWelcomeBack": "Welcome back",
-  "commonLocaleChange": "Change"
+  "commonLocaleChange": "Change",
+  "onboardingSearchForRestaurantsAndShops": "Search for Restaurants and Stores",
+  "onBoardingItIsNowEasyToSelectAndWatchRestaurantsAndStoresNearby": "it's now easier to find restaurants and markets nearby",
+  "onBoardingChatWithTheDriver": "Chat with the Delivery Guy",
+  "onBoardingCommunicatingWithMarsoulnaAndEnquiringIsNowEasierWithTheChatService": "Communicating and Chatting with the Delivery Guy is Made Easier with an In-App Chat Service",
+  "onBoardingOnOurWayToYou": "On Our Way to You",
+  "onBoardingAllYouHaveToDoIsRelaxAndAwaitYourDelivery": "All You Have to Do is Relax and Await Your Delivery"
 }

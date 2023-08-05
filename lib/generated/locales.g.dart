@@ -47,6 +47,16 @@ class LocaleKeys {
   static const commonLocaleChooseDate = 'commonLocaleChooseDate';
   static const commonLocaleWelcomeBack = 'commonLocaleWelcomeBack';
   static const commonLocaleChange = 'commonLocaleChange';
+  static const onboardingSearchForRestaurantsAndShops =
+      'onboardingSearchForRestaurantsAndShops';
+  static const onBoardingItIsNowEasyToSelectAndWatchRestaurantsAndStoresNearby =
+      'onBoardingItIsNowEasyToSelectAndWatchRestaurantsAndStoresNearby';
+  static const onBoardingChatWithTheDriver = 'onBoardingChatWithTheDriver';
+  static const onBoardingCommunicatingWithMarsoulnaAndEnquiringIsNowEasierWithTheChatService =
+      'onBoardingCommunicatingWithMarsoulnaAndEnquiringIsNowEasierWithTheChatService';
+  static const onBoardingOnOurWayToYou = 'onBoardingOnOurWayToYou';
+  static const onBoardingAllYouHaveToDoIsRelaxAndAwaitYourDelivery =
+      'onBoardingAllYouHaveToDoIsRelaxAndAwaitYourDelivery';
 }
 
 class Locales {
@@ -82,6 +92,16 @@ class Locales {
     'commonLocaleChooseDate': 'Choose Date',
     'commonLocaleWelcomeBack': 'Welcome back',
     'commonLocaleChange': 'Change',
+    'onboardingSearchForRestaurantsAndShops':
+        'Search for Restaurants and Stores',
+    'onBoardingItIsNowEasyToSelectAndWatchRestaurantsAndStoresNearby':
+        'it\'s now easier to find restaurants and markets nearby',
+    'onBoardingChatWithTheDriver': 'Chat with the Delivery Guy',
+    'onBoardingCommunicatingWithMarsoulnaAndEnquiringIsNowEasierWithTheChatService':
+        'Communicating and Chatting with the Delivery Guy is Made Easier with an In-App Chat Service',
+    'onBoardingOnOurWayToYou': 'On Our Way to You',
+    'onBoardingAllYouHaveToDoIsRelaxAndAwaitYourDelivery':
+        'All You Have to Do is Relax and Await Your Delivery',
   };
   static const ar = {
     'marsoulna': 'مرسول',
@@ -115,5 +135,14 @@ class Locales {
     'commonLocaleChooseDate': 'اختر تاريخاً',
     'commonLocaleWelcomeBack': 'مرحباً بعودتك',
     'commonLocaleChange': 'تغيير',
+    'onboardingSearchForRestaurantsAndShops': 'ابحث عن المطاعم والمتاجر',
+    'onBoardingItIsNowEasyToSelectAndWatchRestaurantsAndStoresNearby':
+        'اصبح من السهل اختيار ومشاهدة المطاعم والمتاجر القريبة منك',
+    'onBoardingChatWithTheDriver': 'تواصل مع السائق',
+    'onBoardingCommunicatingWithMarsoulnaAndEnquiringIsNowEasierWithTheChatService':
+        'التواصل مع المرسول والاستفسار أصبح اسهل مع خدمة الدردشة',
+    'onBoardingOnOurWayToYou': 'في طريقنا اليك',
+    'onBoardingAllYouHaveToDoIsRelaxAndAwaitYourDelivery':
+        'الأن كل ما هو عليك هوا انتظار وصول المرسول',
   };
 }

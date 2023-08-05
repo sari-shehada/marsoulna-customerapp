@@ -29,5 +29,11 @@
   "commonLocaleOptional": "اختياري",
   "commonLocaleChooseDate": "اختر تاريخاً",
   "commonLocaleWelcomeBack": "مرحباً بعودتك",
-  "commonLocaleChange": "تغيير"
+  "commonLocaleChange": "تغيير",
+  "onboardingSearchForRestaurantsAndShops": "ابحث عن المطاعم والمتاجر",
+  "onBoardingItIsNowEasyToSelectAndWatchRestaurantsAndStoresNearby": "اصبح من السهل اختيار ومشاهدة المطاعم والمتاجر القريبة منك",
+  "onBoardingChatWithTheDriver": "تواصل مع السائق",
+  "onBoardingCommunicatingWithMarsoulnaAndEnquiringIsNowEasierWithTheChatService": "التواصل مع المرسول والاستفسار أصبح اسهل مع خدمة الدردشة",
+  "onBoardingOnOurWayToYou": "في طريقنا اليك",
+  "onBoardingAllYouHaveToDoIsRelaxAndAwaitYourDelivery": "الأن كل ما هو عليك هوا انتظار وصول المرسول"
 }
