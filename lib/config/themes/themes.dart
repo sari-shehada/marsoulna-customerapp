@@ -8,6 +8,7 @@ part 'text_themes.dart';
 final ThemeData _sharedTheme = ThemeData(
   fontFamily: 'Marsoulna',
   useMaterial3: true,
+  splashColor: Colors.transparent,
   textTheme: TextTheme(
     displayLarge: _displayLarge,
     displayMedium: _displayMedium,
