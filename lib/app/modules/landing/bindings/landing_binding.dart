@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import 'package:marsoulna/app/modules/landing/controllers/landing_animation_controller_controller.dart';
+import 'package:marsoulna/app/modules/landing/controllers/landing_animation_controller.dart';
 
 import '../controllers/landing_controller.dart';
 

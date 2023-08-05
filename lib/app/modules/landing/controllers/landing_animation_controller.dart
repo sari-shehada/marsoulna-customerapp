@@ -83,8 +83,12 @@ class LandingAnimationController extends GetxController
     super.onClose();
   }
 
-  void _startAnimation() {
+  Future<void> _startAnimation() async {
     animationController.forward();
+  }
+
+  Future<void> reverseAnimation() async {
+    await animationController.reverse();
   }
 
   void _initAnimationController() {
@@ -106,12 +110,16 @@ class LandingAnimationController extends GetxController
       CurvedAnimation(
         parent: animationController,
         curve: _LandingAnimationControllerConstants.forwardAnimationCurve,
+        reverseCurve:
+            _LandingAnimationControllerConstants.reverseAnimationCurve,
       ),
     );
     appIconDimensionAnimation = appIconDimensionTween.animate(
       CurvedAnimation(
         parent: animationController,
         curve: _LandingAnimationControllerConstants.forwardAnimationCurve,
+        reverseCurve:
+            _LandingAnimationControllerConstants.reverseAnimationCurve,
       ),
     );
   }
@@ -121,18 +129,24 @@ class LandingAnimationController extends GetxController
       CurvedAnimation(
         parent: animationController,
         curve: _LandingAnimationControllerConstants.forwardAnimationCurve,
+        reverseCurve:
+            _LandingAnimationControllerConstants.reverseAnimationCurve,
       ),
     );
     appTitleSizeAnimation = appTitleFontSizeTween.animate(
       CurvedAnimation(
         parent: animationController,
         curve: _LandingAnimationControllerConstants.forwardAnimationCurve,
+        reverseCurve:
+            _LandingAnimationControllerConstants.reverseAnimationCurve,
       ),
     );
     appTitleColorAnimation = appTitleFontColorTween.animate(
       CurvedAnimation(
         parent: animationController,
         curve: _LandingAnimationControllerConstants.forwardAnimationCurve,
+        reverseCurve:
+            _LandingAnimationControllerConstants.reverseAnimationCurve,
       ),
     );
   }
@@ -143,12 +157,16 @@ class LandingAnimationController extends GetxController
       CurvedAnimation(
         parent: animationController,
         curve: _LandingAnimationControllerConstants.forwardAnimationCurve,
+        reverseCurve:
+            _LandingAnimationControllerConstants.reverseAnimationCurve,
       ),
     );
     circularContainerColorAnimation = circularContainerColorTween.animate(
       CurvedAnimation(
         parent: animationController,
         curve: _LandingAnimationControllerConstants.forwardAnimationCurve,
+        reverseCurve:
+            _LandingAnimationControllerConstants.reverseAnimationCurve,
       ),
     );
   }
@@ -158,6 +176,8 @@ class LandingAnimationController extends GetxController
       CurvedAnimation(
         parent: animationController,
         curve: _LandingAnimationControllerConstants.forwardAnimationCurve,
+        reverseCurve:
+            _LandingAnimationControllerConstants.reverseAnimationCurve,
       ),
     );
   }
@@ -167,6 +187,7 @@ class _LandingAnimationControllerConstants {
   //Misc
   static Duration get animationDuration => 600.milliseconds;
   static Cubic get forwardAnimationCurve => Curves.linearToEaseOut;
+  static Curve get reverseAnimationCurve => forwardAnimationCurve.flipped;
 
   //App Icon
   static double get appIconTopPosition =>

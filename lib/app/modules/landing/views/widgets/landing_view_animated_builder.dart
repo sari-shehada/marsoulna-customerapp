@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:marsoulna/app/modules/landing/controllers/landing_animation_controller_controller.dart';
+import 'package:marsoulna/app/modules/landing/controllers/landing_animation_controller.dart';
 
 class LandingViewAnimatedBuilder extends GetView<LandingAnimationController> {
   const LandingViewAnimatedBuilder({

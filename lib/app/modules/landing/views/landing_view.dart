@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
-import 'package:marsoulna/app/modules/landing/controllers/landing_animation_controller_controller.dart';
+import 'package:marsoulna/app/modules/landing/controllers/landing_animation_controller.dart';
 import 'package:marsoulna/app/modules/landing/views/widgets/landing_view_animated_builder.dart';
 import 'package:marsoulna/app/modules/loader/views/loader_view_shared_design_constants.dart';
 import 'package:marsoulna/config/design/design_config.dart';
@@ -23,124 +23,164 @@ class LandingView extends GetView<LandingController> {
     ColorScheme colorScheme = themeData.colorScheme;
     return Scaffold(
       body: Stack(
-        alignment: Alignment.center,
-        fit: StackFit.expand,
         children: [
-          //KEY: Circular Decoration Container
-          LandingViewAnimatedBuilder(
-            builder: (BuildContext context, Widget? child) {
-              return Positioned(
-                top: animationController
-                    .circularContainerTopPositionAnimation.value,
-                height: 1000.responsiveFromHeight,
-                width: 1000.responsiveFromHeight,
-                child: Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: animationController
-                        .circularContainerColorAnimation.value,
-                  ),
-                ),
-              );
-            },
-          ),
-          //KEY: App Icon
-          LandingViewAnimatedBuilder(
-            builder: (BuildContext context, Widget? child) {
-              return Positioned(
-                top: animationController.appIconTopPositionAnimation.value,
-                height: animationController.appIconDimensionAnimation.value,
-                width: animationController.appIconDimensionAnimation.value,
-                child: SvgPicture.asset(
-                  SharedImageKey.appIcon,
-                  colorFilter: ColorFilter.mode(
-                    Theme.of(context).colorScheme.primary,
-                    BlendMode.srcIn,
-                  ),
-                ),
-              );
-            },
-          ),
-          //KEY: App Title
-          LandingViewAnimatedBuilder(
-            builder: (BuildContext context, Widget? child) {
-              return Positioned(
-                top: animationController.appTitleTopPositionAnimation.value,
-                child: Text(
-                  'marsoulna'.tr,
-                  style: LoaderViewSharedDesignConstants.appTitleTextStyle
-                      .copyWith(
-                    color: animationController.appTitleColorAnimation.value,
-                    fontSize: animationController.appTitleSizeAnimation.value,
-                  ),
-                ),
-              );
-            },
-          ),
-          //KEY: App Title
-          LandingViewAnimatedBuilder(
-            builder: (BuildContext context, Widget? child) {
-              return Positioned(
-                top: 615.responsiveFromHeight,
-                child: Opacity(
-                  opacity:
-                      animationController.otherElementsOpacityAnimation.value,
-                  child: Text(
-                    'landingViewFullyRemastered'.tr,
-                    style: textTheme.titleLarge?.copyWith(
-                      color: colorScheme.surface,
-                      fontWeight: FontWeight.normal,
-                    ),
-                  ),
-                ),
-              );
-            },
-          ),
-          //KEY: App Title
-          LandingViewAnimatedBuilder(
-            builder: (BuildContext context, Widget? child) {
-              return Positioned(
-                top: 710.responsiveFromHeight,
-                height: 60.responsiveFromHeight,
-                width: 310.responsiveFromWidth,
-                child: Opacity(
-                  opacity:
-                      animationController.otherElementsOpacityAnimation.value,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: colorScheme.surface,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 16,
-                          offset: Offset(0, 4.responsiveFromHeight),
-                          color: colorScheme.shadow.withOpacity(.2),
+          //This is used for push-back effect when the user opens the language change bottom sheet
+          Obx(
+            () => AnimatedScale(
+              scale: controller.isChangeLanguageSheetOpen.value ? 0.92 : 1,
+              duration: 200.milliseconds,
+              curve: Curves.decelerate,
+              child: Stack(
+                alignment: Alignment.center,
+                fit: StackFit.expand,
+                clipBehavior: Clip.none,
+                children: [
+                  //KEY: Circular Decoration Container
+                  LandingViewAnimatedBuilder(
+                    builder: (BuildContext context, Widget? child) {
+                      return Positioned(
+                        top: animationController
+                            .circularContainerTopPositionAnimation.value,
+                        height: 1000.responsiveFromHeight,
+                        width: 1000.responsiveFromHeight,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: animationController
+                                .circularContainerColorAnimation.value,
+                          ),
                         ),
-                      ],
-                      borderRadius: BorderRadius.circular(
-                        14.responsiveFromRadius,
-                      ),
-                    ),
-                    alignment: Alignment.center,
-                    child: Text(
-                      'commonLocaleGetStarted'.tr,
-                      style: TextStyle(
-                        color: colorScheme.primary,
-                        fontSize: 18.responsiveFromTextSize,
-                      ),
-                    ),
+                      );
+                    },
                   ),
-                ),
-              );
-            },
-          ),
-          //KEY: Language Change Button
-          Positioned.directional(
-            top: (DesignConfig.deviceTopPadding + 10).responsiveFromHeight,
-            start: 30.responsiveFromWidth,
-            textDirection: Directionality.of(context),
-            child: CustomIconButton(
-              icon: Icons.language,
-              onTap: () => controller.changeLanguage(context),
+                  //KEY: App Icon
+                  LandingViewAnimatedBuilder(
+                    builder: (BuildContext context, Widget? child) {
+                      return Positioned(
+                        top: animationController
+                            .appIconTopPositionAnimation.value,
+                        height:
+                            animationController.appIconDimensionAnimation.value,
+                        width:
+                            animationController.appIconDimensionAnimation.value,
+                        child: SvgPicture.asset(
+                          SharedImageKey.appIcon,
+                          colorFilter: ColorFilter.mode(
+                            Theme.of(context).colorScheme.primary,
+                            BlendMode.srcIn,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  //KEY: App Title
+                  LandingViewAnimatedBuilder(
+                    builder: (BuildContext context, Widget? child) {
+                      return Positioned(
+                        top: animationController
+                            .appTitleTopPositionAnimation.value,
+                        child: Text(
+                          'marsoulna'.tr,
+                          style: LoaderViewSharedDesignConstants
+                              .appTitleTextStyle
+                              .copyWith(
+                            color: animationController
+                                .appTitleColorAnimation.value,
+                            fontSize:
+                                animationController.appTitleSizeAnimation.value,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  //KEY: App Title
+                  LandingViewAnimatedBuilder(
+                    builder: (BuildContext context, Widget? child) {
+                      return Positioned(
+                        top: 615.responsiveFromHeight,
+                        child: Opacity(
+                          opacity: animationController
+                              .otherElementsOpacityAnimation.value,
+                          child: Text(
+                            'landingViewFullyRemastered'.tr,
+                            style: textTheme.titleLarge?.copyWith(
+                              color: colorScheme.surface,
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  //KEY: App Title
+                  LandingViewAnimatedBuilder(
+                    builder: (BuildContext context, Widget? child) {
+                      return Positioned(
+                        top: 710.responsiveFromHeight,
+                        height: 60.responsiveFromHeight,
+                        width: 310.responsiveFromWidth,
+                        child: Opacity(
+                          opacity: animationController
+                              .otherElementsOpacityAnimation.value,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: colorScheme.surface,
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 16,
+                                  offset: Offset(0, 4.responsiveFromHeight),
+                                  color: colorScheme.shadow.withOpacity(.2),
+                                ),
+                              ],
+                              borderRadius: BorderRadius.circular(
+                                14.responsiveFromRadius,
+                              ),
+                            ),
+                            alignment: Alignment.center,
+                            child: Material(
+                              color: Colors.transparent,
+                              child: InkWell(
+                                borderRadius: BorderRadius.circular(
+                                  14.responsiveFromRadius,
+                                ),
+                                onTap: () => controller.toOnBoarding(),
+                                child: Center(
+                                  child: Text(
+                                    'commonLocaleGetStarted'.tr,
+                                    style: TextStyle(
+                                      color: colorScheme.primary,
+                                      fontSize: 18.responsiveFromTextSize,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  //KEY: Language Change Button
+                  LandingViewAnimatedBuilder(
+                    builder: (BuildContext context, Widget? child) {
+                      return Positioned.directional(
+                        top: (DesignConfig.deviceTopPadding + 10)
+                            .responsiveFromHeight,
+                        start: 30.responsiveFromWidth,
+                        textDirection: Directionality.of(context),
+                        child: Opacity(
+                          opacity: animationController
+                              .otherElementsOpacityAnimation.value,
+                          child: CustomIconButton(
+                            icon: Icons.language,
+                            onTap: () => controller.changeLanguage(context),
+                          ),
+                        ),
+                      );
+                    },
+                  )
+                ],
+              ),
             ),
           ),
         ],
