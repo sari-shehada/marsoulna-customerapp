@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'config/scroll_behavior/scroll_behaviour_config.dart';
 import 'services/locale_service/locales_service.dart';
 
 import 'app/routes/app_pages.dart';
@@ -40,6 +41,7 @@ class Wrapper extends StatelessWidget {
           darkTheme: darkTheme,
           translationsKeys: AppTranslation.translations,
           debugShowCheckedModeBanner: false,
+          scrollBehavior: const ScrollBehaviorConfig(),
           routingCallback: (routing) {
             print('Called ');
             if (routing == null) {

@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:marsoulna/config/design/design_config.dart';
-import 'package:marsoulna/config/images/image_handler.dart';
 import 'package:marsoulna/config/images/themed_image_keys.dart';
 import 'package:marsoulna/extensions/responsiveness_extensions.dart';
 import 'package:marsoulna/utils/spacing_utils/spacing_utils.dart';
 
+import '../../../../../config/images/image_handler.dart';
+
 class OnboardingStoryWidget extends StatelessWidget {
   const OnboardingStoryWidget({
     super.key,
-    required this.svgImageKey,
+    required this.pngImageKey,
     required this.titleText,
     required this.detailsText,
   });
 
-  final ThemedImageKey svgImageKey;
+  final ThemedImageKey pngImageKey;
   final String titleText;
   final String detailsText;
   @override
@@ -30,20 +30,24 @@ class OnboardingStoryWidget extends StatelessWidget {
       child: Column(
         children: [
           AddVerticalSpacing(
-            value: (DesignConfig.deviceTopPadding + 160).responsiveFromHeight,
+            value: (DesignConfig.deviceTopPadding + 120) //Different from Figma
+                .responsiveFromHeight,
           ),
           // Container(
-          SizedBox(
-            height: 280.responsiveFromHeight,
-            width: 280.responsiveFromHeight,
+          SizedBox.square(
+            dimension: _OnBoardingStoryWidgetConstants.imageDimension,
+            // height: _OnBoardingStoryWidgetConstants.imageDimension,
+            // width: _OnBoardingStoryWidgetConstants.imageDimension,
             // decoration: BoxDecoration(
-            //   color: colorScheme.primary,
+            //   color: Colors.black.withOpacity(.2),
             // ),
-            child: SvgPicture.asset(
-              ImageHandler.getThemedImagePath(svgImageKey),
+            child: Image.asset(
+              ImageHandler.getThemedImagePath(pngImageKey),
+              fit: BoxFit.contain,
             ),
           ),
-          AddVerticalSpacing(value: 30.responsiveFromHeight),
+          AddVerticalSpacing(
+              value: 20.responsiveFromHeight), //Different from Figma
           Text(
             titleText.tr,
             textAlign: TextAlign.center,
@@ -51,7 +55,8 @@ class OnboardingStoryWidget extends StatelessWidget {
               color: colorScheme.primary,
             ),
           ),
-          AddVerticalSpacing(value: 20.responsiveFromHeight),
+          AddVerticalSpacing(
+              value: 25.responsiveFromHeight), //Different from Figma
           Text(
             detailsText.tr,
             textAlign: TextAlign.center,
@@ -63,4 +68,8 @@ class OnboardingStoryWidget extends StatelessWidget {
       ),
     );
   }
+}
+
+class _OnBoardingStoryWidgetConstants {
+  static double get imageDimension => 310.responsiveFromHeight;
 }
