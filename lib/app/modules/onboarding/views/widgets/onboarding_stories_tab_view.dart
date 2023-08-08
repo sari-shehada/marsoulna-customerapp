@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 
@@ -19,6 +20,8 @@ class OnboardingStoriesTabView extends GetView<OnboardingTabViewController> {
     return TabBarView(
       controller: controller.tabController,
       physics: const BouncingScrollPhysics(),
+      //TODO: Take a further look into this
+      dragStartBehavior: DragStartBehavior.down,
       children: _OnboardingStoriesPageViewConstants.stories,
     );
   }

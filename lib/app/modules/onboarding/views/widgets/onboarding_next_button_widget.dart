@@ -1,6 +1,7 @@
 import 'package:curved_progress_bar/curved_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:marsoulna/app/modules/onboarding/controllers/onboarding_controller.dart';
 import 'package:marsoulna/app/modules/onboarding/controllers/onboarding_tab_view_controller.dart';
 import 'package:marsoulna/extensions/responsiveness_extensions.dart';
 
@@ -36,10 +37,15 @@ class OnboardingNextButtonWidget extends StatelessWidget {
               color: colorScheme.primary,
               shape: BoxShape.circle,
             ),
-            child: InkWell(
-              child: Icon(
-                Icons.arrow_forward_ios,
-                color: colorScheme.surface,
+            clipBehavior: Clip.hardEdge,
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap: () => Get.find<OnboardingController>().next(),
+                child: Icon(
+                  Icons.arrow_forward_ios,
+                  color: colorScheme.surface,
+                ),
               ),
             ),
           ),

@@ -4,6 +4,8 @@ import 'package:marsoulna/extensions/responsiveness_extensions.dart';
 
 class OnboardingTabViewController extends GetxController
     with GetTickerProviderStateMixin {
+  int currentPage = 0;
+  double currentOffset = 0;
   late final TabController tabController;
   int get pagesCount => _OnboardingPageViewControllerConstants.storiesCount;
 
@@ -29,7 +31,25 @@ class OnboardingTabViewController extends GetxController
       vsync: this,
       length: pagesCount,
     );
+    tabController.addListener(() {
+      currentPage = tabController.index;
+      currentOffset = tabController.offset;
+    });
     super.onInit();
+  }
+
+  Future<void> animateToNext() async {
+    if (tabController.offset != currentOffset &&
+        !tabController.indexIsChanging) {
+      return;
+    }
+    if (currentPage >= pagesCount - 1) {
+      return;
+    }
+    tabController.animateTo(
+      ++currentPage,
+      // curve: Curves.decelerate,
+    );
   }
 
   double get animationValueFromZeroToOne =>

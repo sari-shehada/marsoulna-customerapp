@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import 'onboarding_tab_view_controller.dart';
+
 class OnboardingController extends GetxController {
   @override
   void onInit() {
@@ -16,5 +18,9 @@ class OnboardingController extends GetxController {
     super.onClose();
   }
 
-  void next() {}
+  OnboardingTabViewController get tabViewController =>
+      Get.find<OnboardingTabViewController>();
+  void next() {
+    tabViewController.animateToNext();
+  }
 }

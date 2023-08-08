@@ -91,6 +91,10 @@ class LandingAnimationController extends GetxController
     await animationController.reverse();
   }
 
+  Future<void> restartAnimation() async {
+    await _startAnimation();
+  }
+
   void _initAnimationController() {
     animationController = AnimationController(
       vsync: this,
