@@ -30,7 +30,7 @@ class OnboardingStoryWidget extends StatelessWidget {
       child: Column(
         children: [
           AddVerticalSpacing(
-            value: (DesignConfig.deviceTopPadding + 120) //Different from Figma
+            value: (DesignConfig.deviceTopPadding + 130) //Different from Figma
                 .responsiveFromHeight,
           ),
           // Container(
@@ -47,7 +47,7 @@ class OnboardingStoryWidget extends StatelessWidget {
             ),
           ),
           AddVerticalSpacing(
-              value: 20.responsiveFromHeight), //Different from Figma
+              value: 10.responsiveFromHeight), //Different from Figma
           Text(
             titleText.tr,
             textAlign: TextAlign.center,
