@@ -20,10 +20,10 @@ class OnboardingSkipButton extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: ContainerConfig.defaultBorderRadius,
-        color: colorScheme.secondaryContainer,
+        // color: colorScheme.secondaryContainer,
       ),
       height: 50.responsiveFromHeight,
-      width: 120.responsiveFromWidth,
+      width: 100.responsiveFromWidth,
       child: Material(
         color: Colors.transparent,
         child: InkWell(
