@@ -7,6 +7,7 @@ import 'package:marsoulna/app/modules/landing/views/widgets/landing_view_animate
 import 'package:marsoulna/app/modules/loader/views/loader_view_shared_design_constants.dart';
 import 'package:marsoulna/config/design/design_config.dart';
 import 'package:marsoulna/extensions/responsiveness_extensions.dart';
+import 'package:marsoulna/services/theming_service/theming_service.dart';
 
 import '../../../../config/images/shared_image_keys.dart';
 import '../../../../utils/buttons/custom_icon_button.dart';
@@ -47,15 +48,21 @@ class LandingView extends GetView<LandingController> {
                         shape: BoxShape.circle,
                         color: animationController
                             .circularContainerColorAnimation.value,
-                        boxShadow: [
-                          BoxShadow(
-                            color: colorScheme.shadow.withOpacity(1),
-                            offset: const Offset(0, -4),
-                            blurRadius: 1,
-                          ),
-                        ],
+                        boxShadow: ThemingService.instance.isDarkMode
+                            ? null
+                            : [
+                                BoxShadow(
+                                  color: colorScheme.shadow.withOpacity(
+                                    (animationController
+                                            .otherElementsOpacityAnimation
+                                            .value *
+                                        0.17),
+                                  ),
+                                  offset: Offset(0, -11.responsiveFromHeight),
+                                  blurRadius: 40,
+                                ),
+                              ],
                       ),
-                      child: const Center(),
                     ),
                   );
                 },
