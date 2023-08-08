@@ -33,14 +33,8 @@ class OnboardingStoryWidget extends StatelessWidget {
             value: (DesignConfig.deviceTopPadding + 130) //Different from Figma
                 .responsiveFromHeight,
           ),
-          // Container(
           SizedBox.square(
             dimension: _OnBoardingStoryWidgetConstants.imageDimension,
-            // height: _OnBoardingStoryWidgetConstants.imageDimension,
-            // width: _OnBoardingStoryWidgetConstants.imageDimension,
-            // decoration: BoxDecoration(
-            //   color: Colors.black.withOpacity(.2),
-            // ),
             child: Image.asset(
               ImageHandler.getThemedImagePath(pngImageKey),
               fit: BoxFit.contain,

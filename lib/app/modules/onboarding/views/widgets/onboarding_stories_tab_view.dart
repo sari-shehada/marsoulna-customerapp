@@ -3,11 +3,11 @@ import 'package:get/get_state_manager/src/simple/get_view.dart';
 
 import '../../../../../config/images/themed_image_keys.dart';
 import '../../../../../generated/locales.g.dart';
-import '../../controllers/onboarding_page_view_controller.dart';
+import '../../controllers/onboarding_tab_view_controller.dart';
 import 'onboarding_story_widget.dart';
 
-class OnboardingStoriesPageView extends GetView<OnboardingPageViewController> {
-  const OnboardingStoriesPageView({
+class OnboardingStoriesTabView extends GetView<OnboardingTabViewController> {
+  const OnboardingStoriesTabView({
     super.key,
   });
 
@@ -16,8 +16,9 @@ class OnboardingStoriesPageView extends GetView<OnboardingPageViewController> {
     assert(
       controller.pagesCount == _OnboardingStoriesPageViewConstants.storiesCount,
     );
-    return PageView(
-      controller: controller.pageController,
+    return TabBarView(
+      controller: controller.tabController,
+      physics: const BouncingScrollPhysics(),
       children: _OnboardingStoriesPageViewConstants.stories,
     );
   }
