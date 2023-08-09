@@ -3,8 +3,7 @@ import 'package:get/get.dart';
 
 import '../../controllers/onboarding_tab_view_controller.dart';
 
-class OnboardingDecorationCircleWidget
-    extends GetView<OnboardingTabViewController> {
+class OnboardingDecorationCircleWidget extends StatelessWidget {
   const OnboardingDecorationCircleWidget({
     super.key,
     required this.top,
@@ -17,11 +16,12 @@ class OnboardingDecorationCircleWidget
   final Tween<double> tween;
   @override
   Widget build(BuildContext context) {
+    final OnboardingTabViewController tabViewController = Get.find();
     return AnimatedBuilder(
-      animation: controller.tabController.animation!,
+      animation: tabViewController.tabController.animation!,
       builder: (context, child) {
         return Positioned.directional(
-          start: controller.evaluateTween(tween),
+          start: tabViewController.evaluateTween(tween),
           top: top,
           height: radius,
           width: radius,
