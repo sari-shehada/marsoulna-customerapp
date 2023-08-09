@@ -38,6 +38,12 @@ class OnboardingTabViewController extends GetxController
     super.onInit();
   }
 
+  @override
+  void onClose() {
+    tabController.dispose();
+    super.onClose();
+  }
+
   //Refactor Later
   bool? animateToBack() {
     if ((tabController.offset != currentOffset &&
