@@ -6,6 +6,8 @@ import '../modules/landing/bindings/landing_binding.dart';
 import '../modules/landing/views/landing_view.dart';
 import '../modules/loader/bindings/loader_binding.dart';
 import '../modules/loader/views/loader_view.dart';
+import '../modules/login/bindings/login_binding.dart';
+import '../modules/login/views/login_view.dart';
 import '../modules/onboarding/bindings/onboarding_binding.dart';
 import '../modules/onboarding/views/onboarding_view.dart';
 
@@ -39,6 +41,11 @@ class AppPages {
       page: () => const OnboardingView(),
       binding: OnboardingBinding(),
       transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: _Paths.LOGIN,
+      page: () => const LoginView(),
+      binding: LoginBinding(),
     ),
   ];
 }

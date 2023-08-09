@@ -7,6 +7,7 @@ abstract class Routes {
   static const LOADER = _Paths.LOADER;
   static const LANDING = _Paths.LANDING;
   static const ONBOARDING = _Paths.ONBOARDING;
+  static const LOGIN = _Paths.LOGIN;
 }
 
 abstract class _Paths {
@@ -15,4 +16,5 @@ abstract class _Paths {
   static const LOADER = '/loader';
   static const LANDING = '/landing';
   static const ONBOARDING = '/onboarding';
+  static const LOGIN = '/login';
 }
