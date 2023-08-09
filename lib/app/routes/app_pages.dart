@@ -46,6 +46,8 @@ class AppPages {
       name: _Paths.LOGIN,
       page: () => const LoginView(),
       binding: LoginBinding(),
+      transition: Transition.fadeIn,
+      transitionDuration: 400.milliseconds,
     ),
   ];
 }
