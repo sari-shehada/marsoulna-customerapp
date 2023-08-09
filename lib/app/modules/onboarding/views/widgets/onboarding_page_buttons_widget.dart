@@ -37,7 +37,7 @@ class OnboardingPageButtons extends StatelessWidget {
           ),
           const Spacer(),
           const OnboardingNextButtonWidget(),
-          AddVerticalSpacing(value: 10.responsiveFromHeight),
+          AddVerticalSpacing(value: 30.responsiveFromHeight),
           AddVerticalSpacing(
             value: _OnboardingPageButtonsConstants.bottomPadding,
           ),
