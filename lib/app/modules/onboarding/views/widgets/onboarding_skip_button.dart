@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:marsoulna/extensions/responsiveness_extensions.dart';
+import 'package:marsoulna/utils/spacing_utils/spacing_utils.dart';
 
 import '../../../../../config/design/container_config.dart';
 import '../../../../../generated/locales.g.dart';
@@ -20,10 +21,8 @@ class OnboardingSkipButton extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: ContainerConfig.defaultBorderRadius,
-        // color: colorScheme.secondaryContainer,
       ),
       height: 50.responsiveFromHeight,
-      width: 100.responsiveFromWidth,
       child: Material(
         color: Colors.transparent,
         child: InkWell(
@@ -31,12 +30,11 @@ class OnboardingSkipButton extends StatelessWidget {
           borderRadius: ContainerConfig.defaultBorderRadius,
           child: Padding(
             padding: EdgeInsetsDirectional.only(
-              start: 20.responsiveFromWidth,
-              end: 15.responsiveFromWidth,
+              start: 10.responsiveFromWidth,
+              end: 5.responsiveFromWidth,
             ),
             child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
                   LocaleKeys.commonLocaleSkip.tr,
@@ -44,6 +42,7 @@ class OnboardingSkipButton extends StatelessWidget {
                     color: colorScheme.secondary,
                   ),
                 ),
+                AddHorizontalSpacing(value: 20.responsiveFromWidth),
                 Icon(
                   Icons.arrow_forward_ios,
                   color: colorScheme.secondary,
