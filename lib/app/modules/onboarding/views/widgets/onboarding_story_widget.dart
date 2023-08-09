@@ -40,8 +40,9 @@ class OnboardingStoryWidget extends StatelessWidget {
               fit: BoxFit.contain,
             ),
           ),
-          AddVerticalSpacing(
-              value: 10.responsiveFromHeight), //Different from Figma
+          //TODO: This may be brought back later
+          // AddVerticalSpacing(
+          //     value: 10.responsiveFromHeight), //Different from Figma
           Text(
             titleText.tr,
             textAlign: TextAlign.center,
@@ -65,5 +66,5 @@ class OnboardingStoryWidget extends StatelessWidget {
 }
 
 class _OnBoardingStoryWidgetConstants {
-  static double get imageDimension => 310.responsiveFromHeight;
+  static double get imageDimension => 320.responsiveFromHeight;
 }
