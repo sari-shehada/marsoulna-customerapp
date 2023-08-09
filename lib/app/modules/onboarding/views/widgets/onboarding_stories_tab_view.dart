@@ -21,7 +21,7 @@ class OnboardingStoriesTabView extends GetView<OnboardingTabViewController> {
       controller: controller.tabController,
       physics: const BouncingScrollPhysics(),
       //TODO: Take a further look into this
-      dragStartBehavior: DragStartBehavior.down,
+      dragStartBehavior: DragStartBehavior.start,
       children: _OnboardingStoriesPageViewConstants.stories,
     );
   }

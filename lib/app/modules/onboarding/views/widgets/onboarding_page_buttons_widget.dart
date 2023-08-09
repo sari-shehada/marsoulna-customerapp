@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:marsoulna/app/modules/onboarding/controllers/onboarding_controller.dart';
 import 'package:marsoulna/extensions/responsiveness_extensions.dart';
 
 import '../../../../../config/design/design_config.dart';
@@ -14,6 +16,7 @@ class OnboardingPageButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    OnboardingController controller = Get.find<OnboardingController>();
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: _OnboardingPageButtonsConstants.topButtonsPaddingFromSide,
@@ -26,12 +29,11 @@ class OnboardingPageButtons extends StatelessWidget {
           Row(
             children: [
               CustomBackButton(
-                onTap: () {},
+                onTap: () => controller.back(),
               ),
               const Spacer(),
               OnboardingSkipButton(
-                callback: () =>
-                    print('Skip Button Called'), //TODO: Add skip behavior
+                callback: () => controller.skip(),
               ),
             ],
           ),

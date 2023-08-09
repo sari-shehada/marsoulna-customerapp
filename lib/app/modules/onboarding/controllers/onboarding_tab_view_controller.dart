@@ -38,18 +38,40 @@ class OnboardingTabViewController extends GetxController
     super.onInit();
   }
 
-  Future<void> animateToNext() async {
-    if (tabController.offset != currentOffset &&
-        !tabController.indexIsChanging) {
-      return;
+  //Refactor Later
+  bool? animateToBack() {
+    if ((tabController.offset != currentOffset &&
+            !tabController.indexIsChanging) ||
+        tabController.indexIsChanging) {
+      return null;
+    }
+    if (currentPage <= 0) {
+      return false;
+    }
+    tabController.animateTo(
+      --currentPage,
+      // curve: Curves.decelerate,
+    );
+    return true;
+  }
+
+  //null still in onboarding and don't wanna go next yet
+  //true there is next and I wanna go to it
+  //false there is no next (you may wanna go to login page)
+  bool? animateToNext() {
+    if ((tabController.offset != currentOffset &&
+            !tabController.indexIsChanging) ||
+        tabController.indexIsChanging) {
+      return null;
     }
     if (currentPage >= pagesCount - 1) {
-      return;
+      return false;
     }
     tabController.animateTo(
       ++currentPage,
       // curve: Curves.decelerate,
     );
+    return true;
   }
 
   double get animationValueFromZeroToOne =>

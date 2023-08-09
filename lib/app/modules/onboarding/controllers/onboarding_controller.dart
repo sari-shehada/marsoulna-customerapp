@@ -20,7 +20,20 @@ class OnboardingController extends GetxController {
 
   OnboardingTabViewController get tabViewController =>
       Get.find<OnboardingTabViewController>();
-  void next() {
-    tabViewController.animateToNext();
+
+  void back() {
+    bool? result = tabViewController.animateToBack();
+    if (result == false) {
+      Get.back();
+    }
   }
+
+  void next() {
+    bool? result = tabViewController.animateToNext();
+    if (result == false) {
+      //Add the transition to login
+    }
+  }
+
+  Future<void> skip() async {}
 }

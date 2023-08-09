@@ -15,13 +15,19 @@ class OnboardingView extends GetView<OnboardingController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        alignment: Alignment.center,
-        children: [
-          ..._DecorationContainers.decorationContainers,
-          const OnboardingStoriesTabView(),
-          const OnboardingPageButtons(),
-        ],
+      body: WillPopScope(
+        onWillPop: () async {
+          controller.back();
+          return false;
+        },
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            ..._DecorationContainers.decorationContainers,
+            const OnboardingStoriesTabView(),
+            const OnboardingPageButtons(),
+          ],
+        ),
       ),
     );
   }
