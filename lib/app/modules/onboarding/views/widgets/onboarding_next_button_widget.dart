@@ -23,12 +23,15 @@ class OnboardingNextButtonWidget extends GetView<OnboardingTabViewController> {
           AnimatedBuilder(
             animation: controller.tabController.animation!,
             builder: (context, child) {
-              return CurvedCircularProgressIndicator(
-                value: controller.evaluateTween(
-                  controller.nextButtonProgressTween,
+              return Transform.flip(
+                flipX: Directionality.of(context) == TextDirection.ltr,
+                child: CurvedCircularProgressIndicator(
+                  value: controller.evaluateTween(
+                    controller.nextButtonProgressTween,
+                  ),
+                  color: colorScheme.primary.withOpacity(0.7),
+                  strokeWidth: 7.responsiveFromWidth,
                 ),
-                color: colorScheme.primary.withOpacity(0.7),
-                strokeWidth: 7.responsiveFromWidth,
               );
             },
           ),
