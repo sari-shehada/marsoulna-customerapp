@@ -5,7 +5,7 @@ import 'package:marsoulna/app/modules/onboarding/controllers/onboarding_controll
 import 'package:marsoulna/app/modules/onboarding/controllers/onboarding_tab_view_controller.dart';
 import 'package:marsoulna/extensions/responsiveness_extensions.dart';
 
-class OnboardingNextButtonWidget extends StatelessWidget {
+class OnboardingNextButtonWidget extends GetView<OnboardingTabViewController> {
   const OnboardingNextButtonWidget({
     super.key,
   });
@@ -14,7 +14,6 @@ class OnboardingNextButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeData themeData = Theme.of(context);
     ColorScheme colorScheme = themeData.colorScheme;
-    final OnboardingTabViewController animationController = Get.find();
     return SizedBox.square(
       dimension: 115.responsiveFromTextSize,
       child: Stack(
@@ -22,10 +21,12 @@ class OnboardingNextButtonWidget extends StatelessWidget {
         alignment: Alignment.center,
         children: [
           AnimatedBuilder(
-            animation: animationController.tabController.animation!,
+            animation: controller.tabController.animation!,
             builder: (context, child) {
               return CurvedCircularProgressIndicator(
-                value: animationController.nextButtonProgressValue,
+                value: controller.evaluateTween(
+                  controller.nextButtonProgressTween,
+                ),
                 color: colorScheme.primary.withOpacity(0.7),
                 strokeWidth: 7.responsiveFromWidth,
               );

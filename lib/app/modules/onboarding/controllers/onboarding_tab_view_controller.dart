@@ -55,36 +55,17 @@ class OnboardingTabViewController extends GetxController
   double get animationValueFromZeroToOne =>
       tabController.animation!.value / (pagesCount - 1);
 
-  //Animation Transformations (Manual Animation)
-  double get nextButtonProgressValue => nextButtonProgressTween.transform(
-        animationValueFromZeroToOne,
-      );
-  double get topLeftDecorationContainerXPositionAnimationValue =>
-      topLeftDecorationContainerXPositionTween.transform(
-        animationValueFromZeroToOne,
-      );
-  double get topRightDecorationContainerXPositionAnimationValue =>
-      topRightDecorationContainerXPositionTween.transform(
-        animationValueFromZeroToOne,
-      );
-  double get bottomLeftDecorationContainerXPositionAnimationValue =>
-      bottomLeftDecorationContainerXPositionTween.transform(
-        animationValueFromZeroToOne,
-      );
-  double get bottomRightDecorationContainerXPositionAnimationValue =>
-      bottomRightDecorationContainerXPositionTween.transform(
-        animationValueFromZeroToOne,
-      );
+  double evaluateTween(Tween<double> tween) =>
+      tween.transform(animationValueFromZeroToOne);
 }
 
 class _OnboardingPageViewControllerConstants {
   static const int storiesCount = 3;
-  static const initialProgressPercentage =
-      (1 / _OnboardingPageViewControllerConstants.storiesCount);
+  static const initialProgressPercentage = (1 / storiesCount);
 
   //Tweens
   static Tween<double> get nextButtonProgressTween => Tween(
-        begin: _OnboardingPageViewControllerConstants.initialProgressPercentage,
+        begin: initialProgressPercentage,
         end: 1,
       );
   static Tween<double> get topLeftDecorationContainerXPositionTween => Tween(

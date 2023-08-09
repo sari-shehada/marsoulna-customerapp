@@ -13,28 +13,24 @@ class _DecorationContainers {
       OnboardingDecorationCircleWidget(
     top: 120.responsiveFromHeight,
     radius: 100.responsiveFromTextSize,
-    startAnimationEvaluator: () =>
-        animationController.topLeftDecorationContainerXPositionAnimationValue,
+    tween: animationController.topLeftDecorationContainerXPositionTween,
   );
   static final OnboardingDecorationCircleWidget _topRightDecorationContainer =
       OnboardingDecorationCircleWidget(
     top: 150.responsiveFromHeight,
     radius: 230.responsiveFromTextSize,
-    startAnimationEvaluator: () =>
-        animationController.topRightDecorationContainerXPositionAnimationValue,
+    tween: animationController.topRightDecorationContainerXPositionTween,
   );
   static final OnboardingDecorationCircleWidget _bottomLeftDecorationContainer =
       OnboardingDecorationCircleWidget(
     top: 620.responsiveFromHeight,
     radius: 140.responsiveFromTextSize,
-    startAnimationEvaluator: () => animationController
-        .bottomLeftDecorationContainerXPositionAnimationValue,
+    tween: animationController.bottomLeftDecorationContainerXPositionTween,
   );
   static final OnboardingDecorationCircleWidget
       _bottomRightDecorationContainer = OnboardingDecorationCircleWidget(
     top: 570.responsiveFromHeight,
     radius: 55.responsiveFromTextSize,
-    startAnimationEvaluator: () => animationController
-        .bottomRightDecorationContainerXPositionAnimationValue,
+    tween: animationController.bottomRightDecorationContainerXPositionTween,
   );
 }
