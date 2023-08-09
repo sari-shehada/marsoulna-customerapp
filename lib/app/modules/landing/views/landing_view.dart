@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
 import 'package:marsoulna/app/modules/landing/controllers/landing_animation_controller.dart';
+import 'package:marsoulna/app/modules/landing/views/widgets/landing_circular_decoration_container_widget.dart';
 import 'package:marsoulna/app/modules/landing/views/widgets/landing_view_animated_builder.dart';
 import 'package:marsoulna/app/modules/loader/views/loader_view_shared_design_constants.dart';
 import 'package:marsoulna/config/design/design_config.dart';
@@ -36,39 +37,10 @@ class LandingView extends GetView<LandingController> {
             clipBehavior: Clip.none,
             children: [
               //KEY: Circular Decoration Container
-              LandingViewAnimatedBuilder(
-                builder: (BuildContext context, Widget? child) {
-                  return Positioned(
-                    top: animationController
-                        .circularContainerTopPositionAnimation.value,
-                    height: 1000.responsiveFromHeight,
-                    width: 1000.responsiveFromHeight,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: animationController
-                            .circularContainerColorAnimation.value,
-                        boxShadow: ThemingService.instance.isDarkMode
-                            ? null
-                            : [
-                                BoxShadow(
-                                  color: colorScheme.shadow.withOpacity(
-                                    (animationController
-                                            .otherElementsOpacityAnimation
-                                            .value *
-                                        0.17),
-                                  ),
-                                  offset: Offset(0, -11.responsiveFromHeight),
-                                  blurRadius: 40,
-                                ),
-                              ],
-                      ),
-                    ),
-                  );
-                },
-              ),
+              const LandingCircularDecorationContainer(),
               //KEY: App Icon
-              LandingViewAnimatedBuilder(
+              SimpleAnimatedBuilder(
+                controller: animationController.animationController,
                 builder: (BuildContext context, Widget? child) {
                   return Positioned(
                     top: animationController.appIconTopPositionAnimation.value,
@@ -85,7 +57,8 @@ class LandingView extends GetView<LandingController> {
                 },
               ),
               //KEY: App Title
-              LandingViewAnimatedBuilder(
+              SimpleAnimatedBuilder(
+                controller: animationController.animationController,
                 builder: (BuildContext context, Widget? child) {
                   return Positioned(
                     top: animationController.appTitleTopPositionAnimation.value,
@@ -102,7 +75,8 @@ class LandingView extends GetView<LandingController> {
                 },
               ),
               //KEY: App Title
-              LandingViewAnimatedBuilder(
+              SimpleAnimatedBuilder(
+                controller: animationController.animationController,
                 builder: (BuildContext context, Widget? child) {
                   return Positioned(
                     top: 615.responsiveFromHeight,
@@ -121,7 +95,8 @@ class LandingView extends GetView<LandingController> {
                 },
               ),
               //KEY: App Title
-              LandingViewAnimatedBuilder(
+              SimpleAnimatedBuilder(
+                controller: animationController.animationController,
                 builder: (BuildContext context, Widget? child) {
                   return Positioned(
                     top: 710.responsiveFromHeight,
@@ -169,7 +144,8 @@ class LandingView extends GetView<LandingController> {
                 },
               ),
               //KEY: Language Change Button
-              LandingViewAnimatedBuilder(
+              SimpleAnimatedBuilder(
+                controller: animationController.animationController,
                 builder: (BuildContext context, Widget? child) {
                   return Positioned.directional(
                     top: (DesignConfig.deviceTopPadding + 10)
@@ -190,6 +166,38 @@ class LandingView extends GetView<LandingController> {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+//TODO: Move somewhere else
+class AnimatedCircularDecorationContainerWidget extends StatelessWidget {
+  const AnimatedCircularDecorationContainerWidget({
+    super.key,
+    required this.colorAnimation,
+    required this.shadowOpacityAnimation,
+  });
+  final Animation colorAnimation;
+  final Animation shadowOpacityAnimation;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: colorAnimation.value,
+        boxShadow: ThemingService.instance.isDarkMode
+            ? null
+            : [
+                BoxShadow(
+                  color: Theme.of(context).colorScheme.shadow.withOpacity(
+                        (shadowOpacityAnimation.value * 0.17),
+                      ),
+                  offset: Offset(0, -11.responsiveFromHeight),
+                  blurRadius: 40,
+                ),
+              ],
       ),
     );
   }

@@ -10,6 +10,7 @@ class LoginAnimationController extends GetxController
   late Duration pauseDuration;
 
   //Tweens
+  //App Icon
   final Tween<double> appIconTopPositionTween = Tween(
     begin: LoaderViewSharedDesignConstants.appIconTopPosition,
     end: _LoginAnimationControllerConstants.appIconTopPosition,
@@ -17,6 +18,10 @@ class LoginAnimationController extends GetxController
   final Tween<double> appIconDimensionTween = Tween(
     begin: LoaderViewSharedDesignConstants.appIconDimension,
     end: _LoginAnimationControllerConstants.appIconDimension,
+  );
+  final ColorTween appIconColorTween = ColorTween(
+    begin: _LoginAnimationControllerConstants.appIconBeginColor,
+    end: _LoginAnimationControllerConstants.appIconEndColor,
   );
   // - Circular Container
   final Tween<double> circularContainerTopPositionTween = Tween(
@@ -37,6 +42,7 @@ class LoginAnimationController extends GetxController
   // - App Icon
   late Animation appIconTopPositionAnimation;
   late Animation appIconDimensionAnimation;
+  late Animation appIconColorAnimation;
   // - Circular Container
   late Animation circularContainerTopPositionAnimation;
   late Animation circularContainerColorAnimation;
@@ -62,6 +68,7 @@ class LoginAnimationController extends GetxController
 
   @override
   void onClose() {
+    animationController.dispose();
     super.onClose();
   }
 
@@ -95,6 +102,12 @@ class LoginAnimationController extends GetxController
       ),
     );
     appIconDimensionAnimation = appIconDimensionTween.animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: _LoginAnimationControllerConstants.forwardAnimationCurve,
+      ),
+    );
+    appIconColorAnimation = appIconColorTween.animate(
       CurvedAnimation(
         parent: animationController,
         curve: _LoginAnimationControllerConstants.forwardAnimationCurve,
@@ -150,6 +163,8 @@ class _LoginAnimationControllerConstants {
   static double get appIconTopPosition =>
       85.responsiveFromHeight; //Was 130 in Figma
   static double get appIconDimension => 140.responsiveFromHeight;
+  static Color get appIconBeginColor => Get.theme.colorScheme.primary;
+  static Color get appIconEndColor => Get.theme.scaffoldBackgroundColor;
   //CircularContainer
   static double get circularContainerBeginTopPosition =>
       -940.responsiveFromHeight;
