@@ -5,25 +5,26 @@ import 'theming_service_shared_prefs_handler.dart';
 
 class ThemingService {
   ThemingService({
-    required this.isDarkMode,
+    // required this.isDarkMode,
     required this.currentThemeMode,
   });
 
-  bool isDarkMode;
+  bool get isDarkMode => Get.isDarkMode;
+  // bool  isDarkMode;
   ThemeMode currentThemeMode;
   static late ThemingService instance;
 
   static ThemingService init() {
     ThemeMode currentThemeMode = _getCurrentThemeModeFromSharedPrefs();
     instance = ThemingService(
-      isDarkMode: Get.isDarkMode,
+      // isDarkMode: Get.isDarkMode,
       currentThemeMode: currentThemeMode,
     );
     return instance;
   }
 
   void toggleLightAndDarkTheme() {
-    isDarkMode = !isDarkMode;
+    // isDarkMode = !isDarkMode;
     _updateThemeMode();
     _applyCurrentThemeMode();
   }
