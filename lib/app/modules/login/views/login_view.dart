@@ -12,17 +12,41 @@ class LoginView extends GetView<LoginController> {
   const LoginView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Stack(
-        alignment: Alignment.center,
-        fit: StackFit.expand,
-        children: [
-          LoginViewForm(),
-          LoginCircularDecorationContainer(),
-          LoginAnimatedAppIcon(),
-          LoginViewWelcomeText(),
-        ],
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * .55,
+              child: const Stack(
+                alignment: Alignment.center,
+                fit: StackFit.expand,
+                clipBehavior: Clip.none,
+                children: [
+                  // LoginViewForm(),
+                  LoginCircularDecorationContainer(),
+                  LoginAnimatedAppIcon(),
+                  LoginViewWelcomeText(),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * .45,
+              child: const LoginViewForm(),
+            ),
+          ],
+        ),
       ),
+      // body: Stack(
+      //   alignment: Alignment.center,
+      //   fit: StackFit.expand,
+      //   children: [
+      //     LoginViewForm(),
+      //     LoginCircularDecorationContainer(),
+      //     LoginAnimatedAppIcon(),
+      //     LoginViewWelcomeText(),
+      //   ],
+      // ),
     );
   }
 }
