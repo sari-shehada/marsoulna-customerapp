@@ -4,11 +4,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:marsoulna/app/modules/landing/controllers/landing_animation_controller.dart';
 import 'package:marsoulna/app/modules/landing/views/widgets/landing_circular_decoration_container_widget.dart';
-import 'package:marsoulna/app/modules/landing/views/widgets/landing_view_animated_builder.dart';
 import 'package:marsoulna/app/modules/loader/views/loader_view_shared_design_constants.dart';
 import 'package:marsoulna/config/design/design_config.dart';
 import 'package:marsoulna/extensions/responsiveness_extensions.dart';
-import 'package:marsoulna/services/theming_service/theming_service.dart';
 
 import '../../../../config/images/shared_image_keys.dart';
 import '../../../../utils/buttons/custom_icon_button.dart';
@@ -39,8 +37,8 @@ class LandingView extends GetView<LandingController> {
               //KEY: Circular Decoration Container
               const LandingCircularDecorationContainer(),
               //KEY: App Icon
-              SimpleAnimatedBuilder(
-                controller: animationController.animationController,
+              AnimatedBuilder(
+                animation: animationController.animationController,
                 builder: (BuildContext context, Widget? child) {
                   return Positioned(
                     top: animationController.appIconTopPositionAnimation.value,
@@ -57,8 +55,8 @@ class LandingView extends GetView<LandingController> {
                 },
               ),
               //KEY: App Title
-              SimpleAnimatedBuilder(
-                controller: animationController.animationController,
+              AnimatedBuilder(
+                animation: animationController.animationController,
                 builder: (BuildContext context, Widget? child) {
                   return Positioned(
                     top: animationController.appTitleTopPositionAnimation.value,
@@ -75,8 +73,8 @@ class LandingView extends GetView<LandingController> {
                 },
               ),
               //KEY: App Title
-              SimpleAnimatedBuilder(
-                controller: animationController.animationController,
+              AnimatedBuilder(
+                animation: animationController.animationController,
                 builder: (BuildContext context, Widget? child) {
                   return Positioned(
                     top: 615.responsiveFromHeight,
@@ -95,8 +93,8 @@ class LandingView extends GetView<LandingController> {
                 },
               ),
               //KEY: App Title
-              SimpleAnimatedBuilder(
-                controller: animationController.animationController,
+              AnimatedBuilder(
+                animation: animationController.animationController,
                 builder: (BuildContext context, Widget? child) {
                   return Positioned(
                     top: 710.responsiveFromHeight,
@@ -144,8 +142,8 @@ class LandingView extends GetView<LandingController> {
                 },
               ),
               //KEY: Language Change Button
-              SimpleAnimatedBuilder(
-                controller: animationController.animationController,
+              AnimatedBuilder(
+                animation: animationController.animationController,
                 builder: (BuildContext context, Widget? child) {
                   return Positioned.directional(
                     top: (DesignConfig.deviceTopPadding + 10)
@@ -166,38 +164,6 @@ class LandingView extends GetView<LandingController> {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-//TODO: Move somewhere else
-class AnimatedCircularDecorationContainerWidget extends StatelessWidget {
-  const AnimatedCircularDecorationContainerWidget({
-    super.key,
-    required this.colorAnimation,
-    required this.shadowOpacityAnimation,
-  });
-  final Animation colorAnimation;
-  final Animation shadowOpacityAnimation;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: colorAnimation.value,
-        boxShadow: ThemingService.instance.isDarkMode
-            ? null
-            : [
-                BoxShadow(
-                  color: Theme.of(context).colorScheme.shadow.withOpacity(
-                        (shadowOpacityAnimation.value * 0.17),
-                      ),
-                  offset: Offset(0, -11.responsiveFromHeight),
-                  blurRadius: 40,
-                ),
-              ],
       ),
     );
   }

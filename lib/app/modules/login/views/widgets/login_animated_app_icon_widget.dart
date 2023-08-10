@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../../../../config/images/shared_image_keys.dart';
-import '../../../landing/views/widgets/landing_view_animated_builder.dart';
 import '../../controllers/login_animation_controller.dart';
 
 class LoginAnimatedAppIcon extends GetView<LoginAnimationController> {
@@ -11,8 +10,8 @@ class LoginAnimatedAppIcon extends GetView<LoginAnimationController> {
 
   @override
   Widget build(BuildContext context) {
-    return SimpleAnimatedBuilder(
-      controller: controller.animationController,
+    return AnimatedBuilder(
+      animation: controller.animationController,
       builder: (BuildContext context, Widget? child) {
         return Positioned(
           top: controller.appIconTopPositionAnimation.value,
